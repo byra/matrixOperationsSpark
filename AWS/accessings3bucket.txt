@@ -1,0 +1,22 @@
+How to access an S3 files into spark applications?
+
+    Amazon S3 provides 3 types of protocols for accessing the files from the storage buckets, they are as follows:
+
+        S3, it is non-standard structure for scalability. And is deprecated and soon to be deleted
+        S3n, it supports objects up to 5GB in size
+        S3a, it supports objects up to 5TB and has higher performance (both are because it uses multi-part upload)
+
+        Note:
+            Amazon EMR does not currently support use of the Apache Hadoop S3A file system.
+
+    Reading & Writing for RDD:
+
+        sc.textFile("s3n://yourAccessKey:yourSecretKey@/bucket-name/file")
+
+        rdd.saveAsTextFile("s3n://yourAccessKey:yourSecretKey@/bucket-name/file")
+
+    Reading & Writing for Data frames:
+
+        spark.read.format('csv').options(header='true', inferschema='true').load('s3n://yourAccessKey:yourSecretKey@/bucket-name/file')
+
+        df.write.format('csv').options(header='true', inferschema='true').save('s3n://yourAccessKey:yourSecretKey@/bucket-name/file')

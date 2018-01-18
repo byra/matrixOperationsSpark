@@ -1,0 +1,34 @@
+How to access an Elastic Map Reduce cluster and all other services it offers?
+
+    Access master node:
+        Assuming you have public DNS and EC2 key, open terminal and type following "ssh -i /path/to/EC2key.pem hadoop@public_DNS"
+
+        Ignore warnings and add the host to known networks by typing yes
+
+        Now you are in home of your master node with hadoop as user name
+
+    Access spark ecosystem UI:
+
+        Spark provides various monitoring tools via web, to access them master node ports must be opened.
+
+        To open ports, login to Sign into "https://aws.amazon.com"
+
+        In AWS services search bar, type EC2 and select for "EC2 virtual servers on cloud"
+
+        This opens EC2 dashboard, click on "Security Groups", under "Network & Security".
+
+        Now you are taken to security group page. Select "ElasticMapReduce-master" group, this bring up options on bottom
+
+        From bottom menu, click "Inbound" and then "Edit". Allow HTTP, HTTPS and Custom TCP Rule by using "Add Rule"
+
+        From the browser you can view all services and they are as follows:
+
+        YARN ResourceManager	 http://master-public-dns-name:8088/
+        YARN NodeManager	     http://slave-public-dns-name:8042/
+        Hadoop HDFS NameNode	 http://master-public-dns-name:50070/
+        Hadoop HDFS DataNode	 http://slave-public-dns-name:50075/
+        Spark HistoryServer	   http://master-public-dns-name:18080/
+        Zeppelin	             http://master-public-dns-name:8890/
+        Hue	                   http://master-public-dns-name:8888/
+        Ganglia	               http://master-public-dns-name/ganglia/
+        HBase UI	             http://master-public-dns-name:16010/

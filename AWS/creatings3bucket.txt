@@ -1,0 +1,29 @@
+How to create an Simple Storage Service Bucket?
+
+    Sign into "https://aws.amazon.com"
+
+    In AWS services search bar, type S3 and select for "S3 Scalable Storage in the Cloud"
+
+    This opens S3 dashboard, click on "Create bucket". It loads the Create bucket settings
+
+    Name & Region:
+
+      Type in bucket name, leave the Region to default and click Next
+
+    Set properties:
+
+      Leave the options to default and click Next
+
+    Set permissions:
+
+      Current user is given all privileges to bucket, which can be changed based on requirements
+
+      Add AWS user to give access to bucket by clicking "Add Account"
+
+      Leave Manage public permissions and Manage system permissions to default and click Next
+
+    Review:
+
+      Review the setting and click on Create bucket
+
+Your S3 bucket will be up and running in less than 2 minutes

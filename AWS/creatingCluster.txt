@@ -1,0 +1,37 @@
+How to create an Elastic Map Reduce cluster?
+
+    Sign into "https://aws.amazon.com"
+
+    In AWS services search bar, type EMR and select for "EMR managed hadoop framework"
+
+    This opens EMR dashboard, click on "Create cluster". It loads the quicks options page to setup cluster
+
+    Following are the configuration settings
+
+    General Configuration:
+
+        Name the cluster, logging can be optional. All logs are saved into Amazon S3 buckets by default. They can be saved into your own buckets
+
+        There are two types of launch modes, Step execution, and Cluster. When you want cluster to terminate upon finishing, then use Step execution
+
+    Software Configuration:
+
+        There are various releases of EMR associated with different versions of Hadoop, Spark and many more. Choose according to the requirement
+
+        Now choose the ecosystem that contains all the requirements to run your application
+
+    Hardware Configuration:
+
+        Choose the Instance type in available options
+
+        Type in number of instances required, which includes master node and working nodes
+
+    Security and Access:
+
+        A cluster can be accessed by ssh into master node. It is a good practice to use the EC2 key pair. You can use existing key or create one
+
+        Permissions can be left to default for basic use
+
+    Now click on the "Create cluster" on the left bottom
+
+Your EMR cluster will be up and running in less than 2 minutes
